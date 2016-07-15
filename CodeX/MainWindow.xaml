@@ -43,8 +43,6 @@
               Click="DecreaseFont_Click"/>
             </MenuItem>
         </Menu>
-        <TextBox Grid.Row="1" Name="textBox1" TextWrapping="Wrap">
-            The quick brown fox jumps over the lazy dog.
-        </TextBox>
+        <TextBox Grid.Row="1" Name="textBox1" TextWrapping="Wrap"/>
     </Grid>
 </Window>
