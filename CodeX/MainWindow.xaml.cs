@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,24 @@ namespace CodeX
             {
                 textBox1.FontSize -= 2;
             }
+        }
+
+        private void OpenCmd_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.CheckFileExists = true;
+            dialog.Multiselect = false;
+
+            bool? res = dialog.ShowDialog(this);
+            if (res == true)
+            {
+                textBox1.Text = System.IO.File.ReadAllText(dialog.FileName);
+            }
+        }
+
+        private void OpenCmd_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
     }
 }
