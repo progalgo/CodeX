@@ -30,15 +30,7 @@
                 <MenuItem Command="ApplicationCommands.Paste"/>
             </MenuItem>
             <MenuItem Header="_View">
-                <MenuItem Header="_Font">
-                    <MenuItem Header="_Bold" IsCheckable="True" Checked="Bold_Checked" Unchecked="Bold_Unchecked"/>
-                    <MenuItem Header="_Italic" IsCheckable="True" Checked="Italic_Checked" Unchecked="Italic_Unchecked"/>
-                    <Separator/>
-                    <MenuItem Header="I_ncrease Font Size" Click="IncreaseFont_Click"/>
-                    <MenuItem Header="_Decrease Font Size" Click="DecreaseFont_Click"/>
-                    <Separator/>
-                    <MenuItem Header="_Select Font" Click="SelectFont_Click"/>
-                </MenuItem>
+                <MenuItem Header="_Select Font" Click="SelectFont_Click"/>
             </MenuItem>
         </Menu>
         <TextBox Grid.Row="1" Name="mainTextBox" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"/>
