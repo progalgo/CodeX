@@ -28,37 +28,37 @@ namespace CodeX
 
         private void Bold_Checked(object sender, RoutedEventArgs e)
         {
-            textBox1.FontWeight = FontWeights.Bold;
+            mainTextBox.FontWeight = FontWeights.Bold;
         }
 
         private void Bold_Unchecked(object sender, RoutedEventArgs e)
         {
-            textBox1.FontWeight = FontWeights.Normal;
+            mainTextBox.FontWeight = FontWeights.Normal;
         }
 
         private void Italic_Checked(object sender, RoutedEventArgs e)
         {
-            textBox1.FontStyle = FontStyles.Italic;
+            mainTextBox.FontStyle = FontStyles.Italic;
         }
 
         private void Italic_Unchecked(object sender, RoutedEventArgs e)
         {
-            textBox1.FontStyle = FontStyles.Normal;
+            mainTextBox.FontStyle = FontStyles.Normal;
         }
 
         private void IncreaseFont_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox1.FontSize < 18)
+            if (mainTextBox.FontSize < 18)
             {
-                textBox1.FontSize += 2;
+                mainTextBox.FontSize += 2;
             }
         }
 
         private void DecreaseFont_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox1.FontSize > 10)
+            if (mainTextBox.FontSize > 10)
             {
-                textBox1.FontSize -= 2;
+                mainTextBox.FontSize -= 2;
             }
         }
 
@@ -71,7 +71,7 @@ namespace CodeX
             bool? res = dialog.ShowDialog(this);
             if (res == true)
             {
-                textBox1.Text = System.IO.File.ReadAllText(dialog.FileName);
+                mainTextBox.Text = System.IO.File.ReadAllText(dialog.FileName);
             }
         }
 
@@ -89,8 +89,8 @@ namespace CodeX
 
             if (res == true)
             {
-                textBox1.FontSize = dlg.SelectedFontSize;
-                textBox1.FontFamily = dlg.SelectedFontFamily;
+                mainTextBox.FontSize = dlg.SelectedFontSize;
+                mainTextBox.FontFamily = dlg.SelectedFontFamily;
             }
         }
     }
