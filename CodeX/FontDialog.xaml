@@ -1,0 +1,50 @@
+﻿<Window x:Class="CodeX.FontDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CodeX"
+        mc:Ignorable="d"
+        Title="Font" MinWidth="300" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox x:Name="cb_FontFamily"
+                      HorizontalAlignment="Stretch"
+                      Margin="10,41,10,10"
+                      VerticalAlignment="Top"/>
+
+            <ComboBox x:Name="cb_Size"
+                      HorizontalAlignment="Stretch"
+                      Margin="10,41,10,10"
+                      VerticalAlignment="Top"
+                      Grid.Column="1"
+                      MinWidth="80"/>
+
+            <Label Content="_Font:"
+                   HorizontalAlignment="Left"
+                   Margin="10,10,10,0"
+                   VerticalAlignment="Top"
+                   Target="{Binding ElementName=cb_FontFamily}"/>
+
+            <Label Content="_Size:"
+                   HorizontalAlignment="Left"
+                   Margin="10,10,10,0"
+                   VerticalAlignment="Top"
+                   Target="{Binding ElementName=cb_Size}" Grid.Column="1"/>
+
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="b_OK" Content="OK" Margin="10"  HorizontalAlignment="Right" Width="75" Height="20" IsDefault="True" Click="b_OK_Click"/>
+            <Button x:Name="b_Cancel" Content="Cancel" Margin="10"  HorizontalAlignment="Right" Width="75" Height="20" IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
