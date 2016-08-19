@@ -79,5 +79,19 @@ namespace CodeX
         {
             e.CanExecute = true;
         }
+
+        private void SelectFont_Click(object sender, RoutedEventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+
+            dlg.Owner = this;
+            bool? res = dlg.ShowDialog();
+
+            if (res == true)
+            {
+                textBox1.FontSize = dlg.SelectedFontSize;
+                textBox1.FontFamily = dlg.SelectedFontFamily;
+            }
+        }
     }
 }

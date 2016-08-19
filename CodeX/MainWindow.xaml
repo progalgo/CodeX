@@ -36,6 +36,8 @@
                     <Separator/>
                     <MenuItem Header="I_ncrease Font Size" Click="IncreaseFont_Click"/>
                     <MenuItem Header="_Decrease Font Size" Click="DecreaseFont_Click"/>
+                    <Separator/>
+                    <MenuItem Header="_Select Font" Click="SelectFont_Click"/>
                 </MenuItem>
             </MenuItem>
         </Menu>
