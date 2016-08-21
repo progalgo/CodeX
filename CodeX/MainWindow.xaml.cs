@@ -53,8 +53,18 @@ namespace CodeX
 
             if (res == true)
             {
-                mainTextBox.FontSize = dlg.SelectedFontSize;
-                mainTextBox.FontFamily = dlg.SelectedFontFamily;
+                var fs = dlg.SelectedFontSize;
+                var ff = dlg.SelectedFontFamily;
+
+                if (fs.HasValue)
+                {
+                    mainTextBox.FontSize = fs.Value;
+                }
+
+                if (ff != null)
+                {
+                    mainTextBox.FontFamily = dlg.SelectedFontFamily;
+                }
             }
         }
     }

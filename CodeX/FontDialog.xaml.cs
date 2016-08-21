@@ -27,8 +27,8 @@ namespace CodeX
             cb_Size.ItemsSource = new int[] { 9, 10, 11, 12, 14, 16 };
         }
 
-        public double SelectedFontSize
-        { get { return (int)cb_Size.SelectedValue; } }
+        public double? SelectedFontSize
+        { get { return (int?)cb_Size.SelectedValue; } }
 
         public FontFamily SelectedFontFamily
         { get { return (FontFamily)cb_FontFamily.SelectedValue; } }
