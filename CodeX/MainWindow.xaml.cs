@@ -58,12 +58,12 @@ namespace CodeX
 
                 if (fs.HasValue)
                 {
-                    mainTextBox.FontSize = fs.Value;
+                    Properties.Settings.Default.FontSize = fs.Value;
                 }
 
                 if (ff != null)
                 {
-                    mainTextBox.FontFamily = dlg.SelectedFontFamily;
+                    Properties.Settings.Default.FontFamily = dlg.SelectedFontFamily;
                 }
             }
         }
