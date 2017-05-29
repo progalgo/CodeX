@@ -12,6 +12,7 @@ namespace CodeX
         public MainWindow()
         {
             InitializeComponent();
+            mainTextBox.Lines = new System.Collections.Generic.List<string> { "Test text" };
         }
 
         private void OpenCmd_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -23,7 +24,7 @@ namespace CodeX
             bool? res = dialog.ShowDialog(this);
             if (res == true)
             {
-                mainTextBox.Text = System.IO.File.ReadAllText(dialog.FileName);
+                //mainTextBox.Text = System.IO.File.ReadAllText(dialog.FileName);
             }
         }
 

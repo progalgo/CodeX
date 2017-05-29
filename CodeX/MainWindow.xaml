@@ -33,12 +33,7 @@
                 <MenuItem Header="_Select Font" Click="SelectFont_Click"/>
             </MenuItem>
         </Menu>
-        <TextBox Grid.Row="1" 
-                 Name="mainTextBox"
-                 TextWrapping="Wrap"
-                 AcceptsReturn="True"
-                 AcceptsTab="True"
-                 FontFamily="{Binding Source={StaticResource Settings}, Path=Default.FontFamily}"
-                 FontSize="{Binding Source={StaticResource Settings}, Path=Default.FontSize}"/>
+        
+        <local:TextFileControl Grid.Row="1" x:Name="mainTextBox"/>
     </Grid>
 </Window>
