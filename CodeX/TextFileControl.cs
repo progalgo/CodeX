@@ -25,13 +25,42 @@ namespace CodeX
 
         VisualCollection visualLines;
 
-        public List<string> Lines { get; set; }
-
-        public double FontSize { get; set; }
+        List<string> lines = new List<string>();
 
         public TextFileControl()
         {
             visualLines = new VisualCollection(this);
+        }
+
+        public List<string> Lines
+        {
+            get
+            {
+                return new List<string>(lines);
+            }
+            set
+            {
+                lines = new List<string>(value);
+                InitializeContent();
+                InvalidateVisual();
+            }
+        }
+
+        public double FontSize { get; set; }
+
+        void InitializeContent()
+        {
+            visualLines.Clear();
+
+            foreach (string line in lines)
+            {
+                Glyphs glyphs = new Glyphs();
+                glyphs.UnicodeString = line;
+                glyphs.FontRenderingEmSize = FontSize;
+                glyphs.FontUri = new Uri(@"C:\WINDOWS\Fonts\CONSOLA.TTF");
+                glyphs.Fill = new SolidColorBrush(Colors.Black);
+                visualLines.Add(glyphs);
+            }
         }
 
         #region Visual Tree Interface
@@ -46,7 +75,7 @@ namespace CodeX
 
         protected override Visual GetVisualChild(int index)
         {
-            if(index < 0 || index >= visualLines.Count)
+            if (index < 0 || index >= visualLines.Count)
             {
                 throw new ArgumentOutOfRangeException("index");
             }
@@ -56,14 +85,41 @@ namespace CodeX
 
         #endregion
 
+        #region Layout System Interface
+
         protected override Size MeasureOverride(Size availableSize)
         {
-            return base.MeasureOverride(availableSize);
+            double totalHeight = 0;
+            double maxWidth = 0;
+            
+            foreach (FrameworkElement lineVisual in visualLines)
+            {
+                lineVisual.Measure(availableSize);
+                Size elementSize = lineVisual.DesiredSize;
+                totalHeight += elementSize.Height;
+                maxWidth = Math.Max(maxWidth, elementSize.Width);
+            }
+
+            return new Size(maxWidth, totalHeight);
         }
 
         protected override Size ArrangeOverride(Size finalSize)
         {
-            return base.ArrangeOverride(finalSize);
+            double yOffset = 0;
+
+            foreach (FrameworkElement lineVisual in visualLines)
+            {
+                Size elementSize = lineVisual.DesiredSize;
+                elementSize.Width = finalSize.Width;
+                double height = elementSize.Height;
+                Rect elementRect = new Rect(new Point(0, yOffset), elementSize);
+                yOffset += height;
+                lineVisual.Arrange(elementRect);
+            }
+
+            return finalSize;
         }
+
+        #endregion
     }
 }

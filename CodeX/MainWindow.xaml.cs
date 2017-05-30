@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,7 +13,7 @@ namespace CodeX
         public MainWindow()
         {
             InitializeComponent();
-            mainTextBox.Lines = new System.Collections.Generic.List<string> { "Test text" };
+            mainTextBox.Lines = new List<string> { "Test text", "Another line" };
         }
 
         private void OpenCmd_Executed(object sender, ExecutedRoutedEventArgs e)
